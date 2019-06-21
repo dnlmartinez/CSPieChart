@@ -9,7 +9,7 @@
 import UIKit
 
 class CSPieChartComponent: CALayer {
-
+    
     fileprivate var startAngle: CGFloat = 0
     fileprivate var endAngle: CGFloat = 0
     fileprivate var radiusRate: CGFloat = 0
@@ -72,7 +72,7 @@ extension CSPieChartComponent {
             animation.fromValue = 0
             animation.toValue = 1
             animation.duration = 0.5
-            animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
             animation.delegate = self
             animation.isRemovedOnCompletion = false
             componentLayer.add(animation, forKey: "componentAnimation")
@@ -148,8 +148,8 @@ extension CSPieChartComponent: CAAnimationDelegate {
                 let strokeAnimation = CABasicAnimation(keyPath: "strokeEnd")
                 strokeAnimation.fromValue = 0
                 strokeAnimation.toValue = 1
-                strokeAnimation.fillMode = .both
-                strokeAnimation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+                strokeAnimation.fillMode = kCAFillModeBoth
+                strokeAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
                 strokeAnimation.delegate = self
                 strokeAnimation.isRemovedOnCompletion = false
                 lineLayer.add(strokeAnimation, forKey: "lineAnimation")
@@ -157,8 +157,8 @@ extension CSPieChartComponent: CAAnimationDelegate {
                 let alphaAnimation = CABasicAnimation(keyPath: "opacity")
                 alphaAnimation.fromValue = 0
                 alphaAnimation.toValue = 1
-                alphaAnimation.fillMode = .both
-                alphaAnimation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+                alphaAnimation.fillMode = kCAFillModeBoth
+                alphaAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
                 alphaAnimation.delegate = self
                 alphaAnimation.isRemovedOnCompletion = false
                 subView?.add(alphaAnimation, forKey: "alphaAnimation")
@@ -253,3 +253,4 @@ extension CSPieChartComponent {
         }
     }
 }
+
